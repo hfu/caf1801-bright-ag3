@@ -8,7 +8,6 @@
       "maxzoom":14
     }
   },
-  "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
   "glyphs": "https://hfu.github.io/openmaptiles-fonts/{fontstack}/{range}.pbf",
   "layers": [
     {

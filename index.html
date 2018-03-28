@@ -11,7 +11,7 @@ html, body, #map {padding: 0; margin: 0; height: 100%; width: 100%; overflow: hi
 <script>
 require(["esri/map", "esri/layers/VectorTileLayer", "dojo/domReady!"],
 function(Map, VectorTileLayer) {
-  map = new Map('map', {center: [20.911, 6.354], zoom: 5.77})
+  map = new Map('map', {center: [20.911, 6.354], zoom: 5})
   // map.addLayer(new VectorTileLayer("https://hfu.github.io/caf1801-bright-ag3/style.json"))
   map.addLayer(new VectorTileLayer("https://sgitt-gis-ags2.dfs.un.org/arcgis/rest/services/Hosted/UNMAP_GLOBAL/VectorTileServer/resources/styles/root.json"))
 })

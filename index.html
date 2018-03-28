@@ -21,8 +21,8 @@ function(MapView, Map, VectorTileLayer) {
 require(["esri/map", "esri/layers/VectorTileLayer", "dojo/domReady!"],
 function(Map, VectorTileLayer) {
   map = new Map('map', {center: [20.911, 6.354], zoom: 5})
-  // map.addLayer(new VectorTileLayer("https://hfu.github.io/caf1801-bright-ag3/style.json"))
-  map.addLayer(new VectorTileLayer("https://sgitt-gis-ags2.dfs.un.org/arcgis/rest/services/Hosted/UNMAP_GLOBAL/VectorTileServer/resources/styles/root.json"))
+  map.addLayer(new VectorTileLayer("https://hfu.github.io/caf1801-bright-ag3/resources/styles/style.json"))
+  // map.addLayer(new VectorTileLayer("https://sgitt-gis-ags2.dfs.un.org/arcgis/rest/services/Hosted/UNMAP_GLOBAL/VectorTileServer/resources/styles/root.json"))
 })
 </script>
 </head>

@@ -10,7 +10,7 @@
 require(["esri/map", "esri/layers/VectorTileLayer", "dojo/domReady!"],
 function(Map, VectorTileLayer) {
   map = new Map('map', {
-    center: [20.911, 6.354], zoom: 5, maxZoom: 22, logo: false
+    center: [20.911, 6.354], zoom: 5, maxZoom: 22, maxScale: 0, logo: false
   })
   map.addLayer(new VectorTileLayer("style.json"))
 })

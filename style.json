@@ -10,7 +10,7 @@
       "type": "vector",
       "tiles": ["https://hfujimura.gitlab.io/caf1801/{z}/{x}/{y}.mvt"],
       "attribution": "&copy; OpenMapTiles &copy; OpenStreetMap contributors",
-      "maxzoom":14,
+      "maxzoom":14
     }
   },
   "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",

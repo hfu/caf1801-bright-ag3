@@ -4,25 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
 <link rel="stylesheet" href="https://js.arcgis.com/3.21/esri/css/esri.css">
-<!-- <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css"> -->
-<style>
-html, body, #map {padding: 0; margin: 0; height: 100%; width: 100%; overflow: hidden;}
-</style>
+<style>html, body, #map {padding: 0; margin: 0; height: 100%; width: 100%; overflow: hidden;}</style>
 <script src="https://js.arcgis.com/3.21/"></script>
-<!-- <script src="https://js.arcgis.com/4.6/"></script> -->
 <script>
-  /*
-require(["esri/views/MapView", "esri/Map", "esri/layers/VectorTileLayer"],
-function(MapView, Map, VectorTileLayer) {
-  map = new Map({layers: [new VectorTileLayer({url: "https://hfu.github.io/caf1801-bright-ag3/style.json"})]})
-  view = new MapView({center: [20.911, 6.354], zoom: 5, container: "map", map: map})
-})
-*/
 require(["esri/map", "esri/layers/VectorTileLayer", "dojo/domReady!"],
 function(Map, VectorTileLayer) {
   map = new Map('map', {center: [20.911, 6.354], zoom: 5})
-  map.addLayer(new VectorTileLayer("https://hfu.github.io/caf1801-bright-ag3/style.json"))
-  // map.addLayer(new VectorTileLayer("https://sgitt-gis-ags2.dfs.un.org/arcgis/rest/services/Hosted/UNMAP_GLOBAL/VectorTileServer/resources/styles/root.json"))
+  map.addLayer(new VectorTileLayer("style.json"))
 })
 </script>
 </head>

@@ -11,62 +11,16 @@
   "glyphs": "https://hfu.github.io/noto-jp/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "background",
-      "type": "background",
-      "paint": {
-        "background-color": "hsl(47, 26%, 88%)"
-      }
-    },
-    {
-      "id": "landuse-residential",
-      "type": "fill",
+      "id": "alltransportation",
+      "type": "line",
       "source": "openmaptiles",
-      "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "Polygon"
-        ],
-        [
-          "==",
-          "class",
-          "residential"
-        ]
-      ],
+      "source-layer": "transportation",
       "layout": {
-        "visibility": "visible"
+        "line-join": "round"
       },
       "paint": {
-        "fill-color": "hsl(47, 13%, 86%)",
-        "fill-opacity": 0.7
-      }
-    },
-    {
-      "id": "landcover_grass",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "filter": [
-        "==",
-        "class",
-        "grass"
-      ],
-      "paint": {
-        "fill-color": "hsl(82, 46%, 72%)",
-        "fill-opacity": 0.45
-      }
-    },
-    {
-      "id": "park",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "paint": {
-        "fill-color": "rgba(192, 216, 151, 0.53)",
-        "fill-opacity": 1,
-        "fill-antialias": true
+        "line-color": "#000000",
+        "line-width": 1
       }
     }
   ]

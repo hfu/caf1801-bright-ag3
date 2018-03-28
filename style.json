@@ -11,7 +11,33 @@
   "glyphs": "https://hfu.github.io/noto-jp/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "alltransportation",
+      "id": "waterway",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "layout": {
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#0000ff",
+        "line-width": 2
+      }
+    },
+    {
+      "id": "boundary",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "boundary",
+      "layout": {
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#ff0000",
+        "line-width": 2
+      }
+    },
+     {
+      "id": "transportation",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -20,7 +46,7 @@
       },
       "paint": {
         "line-color": "#000000",
-        "line-width": 1
+        "line-width": 2
       }
     }
   ]

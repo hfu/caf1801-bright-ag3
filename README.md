@@ -3,7 +3,7 @@ caf1803-bright via ArcGIS API for JavaScript version 3
 
 ## outputs
 - [with ArcGIS API for JavaScript 3.21](https://hfu.github.io/caf1801-bright-ag3/index.html)
-- [with Mapbox GL JS 0.44](https://hfu.github.io/caf1801-bright-ag3/mb.html)
+- [with Mapbox GL JS 0.44](https://hfu.github.io/caf1801-bright-ag3/mb.html#5.75/6.153/21.218)
 - [with OpenLayers 4.6.4 with ol-mapbox-style](https://hfu.github.io/caf1801-bright-ag3/ol.html)
 
 ## important findings in writing interoperable style.json

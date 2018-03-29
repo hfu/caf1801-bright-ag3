@@ -3557,7 +3557,7 @@
         "text-font": [
           "Noto Sans Bold"
         ],
-        "text-field": "{name:latin}",
+        "text-field": "{name:en}",
         "text-size": {
           "stops": [
             [
@@ -3603,7 +3603,7 @@
         "text-font": [
           "Noto Sans Bold"
         ],
-        "text-field": "{name:latin}",
+        "text-field": "{name:en}",
         "text-size": {
           "stops": [
             [
@@ -3649,7 +3649,7 @@
         "text-font": [
           "Noto Sans Bold"
         ],
-        "text-field": "{name:latin}",
+        "text-field": "{name:en}",
         "text-size": {
           "stops": [
             [

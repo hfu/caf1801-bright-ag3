@@ -77,6 +77,11 @@ https.get(url, res => {
       if (layer.id.indexOf('railway') !== -1) continue layers
       if (!layer.layout) layer.layout = {}
       if (layer.layout['icon-image']) continue layers
+      if (layer.layout['text-field'] && layer.id.includes('country')) {
+        if (layer.layout['text-field'].includes('latin')) {
+          layer.layout['text-field'] = '{name:en}'
+        }
+      }
       if (layer.type === 'symbol') {
         if (layer.id.includes('place-country')) {
           if (layer.id === 'place-country-other') continue layers

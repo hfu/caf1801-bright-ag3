@@ -1,4 +1,4 @@
-const https = require ('https')
+const https = require('https')
 const colorcolor = require('colorcolor')
 const url = 'https://raw.githubusercontent.com/openmaptiles/osm-bright-gl-style/master/style.json'
 
@@ -6,13 +6,15 @@ let style = {
   version: 8,
   sources: {
     openmaptiles: {
-      type: "vector",
-      tiles: ["https://hfujimura.gitlab.io/caf1801/{z}/{x}/{y}.mvt"],
-      attribution: "&copy; OpenMapTiles &copy; OpenStreetMap contributors",
+      type: 'vector',
+      tiles: ['https://hfujimura.gitlab.io/caf1801/{z}/{x}/{y}.mvt'],
+      attribution: '&copy; OpenMapTiles &copy; OpenStreetMap contributors',
       maxzoom: 14
     }
   },
-  glyphs: "https://hfu.github.io/noto-jp/{fontstack}/{range}.pbf",
+  glyphs: 'https://hfu.github.io/openmaptiles-fonts/{fontstack}/{range}.pbf',
+  //sprite: 'https://openmaptiles.github.io/osm-bright-gl-style/sprite',
+  sprite: 'https://sgitt-gis-ags3.dfs.un.org/arcgis/rest/services/Hosted/UNMAP_GLOBAL2018/VectorTileServer/resources/sprites/sprite',
   layers: []
 }
 
@@ -34,7 +36,10 @@ style.sources.openmaptiles.fullExtent = {
 style.sources.openmaptiles.minScale = 295828763.7957775
 style.sources.openmaptiles.maxScale = 564.248588
 style.sources.openmaptiles.tileInfo = {
-  rows: 512, cols: 512, dpi: 96, format: 'pbf',
+  rows: 512,
+  cols: 512,
+  dpi: 96,
+  format: 'pbf',
   origin: {x: -20037508.342787, y: 20037508.342787},
   spatialReference: {wkid: 102100, latestWkid: 3857}
 }
@@ -69,44 +74,39 @@ https.get(url, res => {
     json = JSON.parse(json)
     layers: for (let i in json.layers) {
       let layer = json.layers[i]
-      if (['background', 'line', 'fill'].indexOf(layer.type) !== -1 //&&
-          //[undefined, 'waterway', 'boundary', 'landcover', 'landuse', 'place', 'park', 'water'].indexOf(json.layers[i]['source-layer']) != -1
-          //['transportation'].indexOf(layer['source-layer']) !== -1
-         ) {
-        for (const key of ['tunnel', 'highway', 'bridge', 'railway']) {
-          if (layer.id === 'highway-motorway') break
-          if (layer.id === 'highway-trunk') break
-          if (layer.id === 'highway-primary') break
-          if (layer.id === 'highway-secondary-tertiary') break
-          if (layer.id === 'highway-minor') break
-          if (layer.id === 'highway-link') break
-          if (layer.id === 'highway-motorway-link') break
-          if (layer.id === 'highway-path') break
-          if (layer.id.indexOf(key) !== -1) continue layers
+      if (layer.id.indexOf('railway') !== -1) continue layers
+      if (!layer.layout) layer.layout = {}
+      if (layer.layout['icon-image']) continue layers
+      if (layer.type === 'symbol') {
+        if (layer.id.includes('place-country')) {
+          if (layer.id === 'place-country-other') continue layers
+          layer.filter.pop()
+        } else if (layer.id.includes('place')) {
+        } else {
+          for (let j in layer.filter) {
+            if (layer.filter[j][0] === 'has') {
+              layer.filter.splice(j, 1)
+            }
+          }
         }
-        delete layer.metadata
-        if (layer.id === 'highway-path') {
-          layer.filter = ['all', 
-            ['==', '$type', 'LineString'],
-            ['!in', 'brunnel', 'bridge', 'tunnel'],
-            ['==', 'class', 'path']]
-        }
-        for (let item of ['line-color', 'fill-color', 'fill-outline-color']) {
-          if (layer.paint[item]) {
-            if (typeof layer.paint[item] === 'string') {
-              layer.paint[item] = colorcolor(layer.paint[item])
-            } else {
-              if (layer.paint[item].stops) {
-                for (let i in layer.paint[item].stops) {
-                  layer.paint[item].stops[i][1] =
-                  colorcolor(layer.paint[item].stops[i][1])
-                }
+      }
+      delete layer.metadata
+      for (let item of [
+        'line-color', 'fill-color', 'fill-outline-color', 'text-color']) {
+        if (layer.paint[item]) {
+          if (typeof layer.paint[item] === 'string') {
+            layer.paint[item] = colorcolor(layer.paint[item])
+          } else {
+            if (layer.paint[item].stops) {
+              for (let i in layer.paint[item].stops) {
+                layer.paint[item].stops[i][1] =
+                colorcolor(layer.paint[item].stops[i][1])
               }
             }
           }
         }
-        style.layers.push(layer)
       }
+      style.layers.push(layer)
     }
     console.log(JSON.stringify(style, null, 2))
   })

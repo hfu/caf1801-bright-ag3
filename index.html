@@ -10,10 +10,14 @@
 require(["esri/map", "esri/layers/VectorTileLayer", "dojo/domReady!"],
 function(Map, VectorTileLayer) {
   map = new Map('map', {
-    center: [20.911, 6.354], zoom: 5, maxZoom: 22, maxScale: 0,
+    center: [20.911, 6.354], zoom: 5, maxZoom: 19, maxScale: 0,
     logo: false, smartNavigation: false
   })
   map.addLayer(new VectorTileLayer("bright.json"))
+  map.on('load', function() {
+    esri.config.defaults.io.corsEnabledServers.push('hfujimura.gitlab.io')
+    esri.config.defaults.io.corsEnabledServers.push('hfu.github.io')
+  })
 })
 </script>
 </head>

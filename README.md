@@ -7,7 +7,7 @@ caf1803-bright via ArcGIS API for JavaScript version 3
 - [with OpenLayers 4.6.4 with ol-mapbox-style](https://hfu.github.io/caf1801-bright-ag3/ol.html)
 
 ## important findings in writing interoperable style.json
-### Do not use color description in hsl() or hsla().
+### Do not use hsl() or hsla() to specify color.
 ArcGIS API for JavaScript 3.21 does not understand color description like 'hsl(100, 50%, 50%)' and 'hsla(100, 50%, 50%, 1)'. [bright.js](bright.js) includes workaround to convert hsl(a) color to rgb(a) color.
 
 ### Make sure you have layer.layout for all layers.

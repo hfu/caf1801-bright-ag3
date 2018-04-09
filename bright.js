@@ -14,7 +14,6 @@ let style = {
   },
   glyphs: 'https://hfu.github.io/openmaptiles-fonts/{fontstack}/{range}.pbf',
   //sprite: 'https://openmaptiles.github.io/osm-bright-gl-style/sprite',
-  sprite: 'https://sgitt-gis-ags3.dfs.un.org/arcgis/rest/services/Hosted/UNMAP_GLOBAL2018/VectorTileServer/resources/sprites/sprite',
   layers: []
 }
 
